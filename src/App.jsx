@@ -1,33 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import CityForm from './components/CityForm'
+import Header from './components/Header';
+import Map from './components/Map';
+import './styles.css';
+
+import axios from 'axios'
+
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [city, setCity]= useState('');
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
 
+  function changeCity(newCity){
+    getLocation(newCity);
+  }
+
+  async function getLocation(cityName){
+    let url = `https://us1.locationiq.com/v1/search?key=${API_KEY}&q=${cityName}&format=json`;
+    try {
+      let response = await axios.get(url);
+      // 2. Put the city into state
+      setCity(response.data[0].display_name)
+
+      // 3. Put the lat/lon into state
+      setLatitude(response.data[0].lat);
+      setLongitude(response.data[0].lon);
+
+    } catch(error) {
+      console.error(error.message)
+      alert('Invalid city format')
+    }
+  }
+  
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header></Header>
+      <CityForm city = {city} handleChangeCity = {changeCity} longitude={longitude} latitude = {latitude}></CityForm>
+      <Map latitude={latitude} longitude={longitude}></Map>
     </>
   )
 }
