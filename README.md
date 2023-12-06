@@ -11,8 +11,6 @@ City Explorer allows users to input a city and state and displays a local map ba
 
 ## Getting Started
 
-
-
 ## Architecture
 
 HTML
