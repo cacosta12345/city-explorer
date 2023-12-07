@@ -26,7 +26,7 @@ LocationIQ API
 
 ## Credit and Collaborations
 
-Pair Programming partner: Xen Deng
+
 
 Name of feature: CityForm component, Map component, locationIQ API
 
@@ -34,6 +34,6 @@ Estimate of time needed to complete: 3 hours
 
 Start time: 2:00 pm
 
-Finish time: 5:00 pm
+Finish time: 6:00 pm
 
 Actual time needed to complete: 4+ hours
