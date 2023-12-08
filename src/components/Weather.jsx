@@ -1,20 +1,17 @@
 import React from 'react';
-import { If, Then, Else, When, Unless, Switch, Case, Default } from 'react-if';
+import {When} from 'react-if'
+
 
 function Weather(props){
     return (
-        <div>
-            <ul>
-                <If condition={props.forecast}>
-                  <Then>{props.forecast.map((day,idx)=>{
-                    return (
-                        <li key={idx}>{day.description}</li>
-                    )
-                  })}</Then>
-                  <Else><p>nothing to show</p></Else>
-                </If>           
-            </ul>
-        </div>
+        <When condition={props.forecast}>
+            <ul>{props.forecast.map((day, inx)=>{
+                return <li key={inx}>
+                    <p>date: {day.date}</p>
+                    <p>description: {day.description}</p>
+                </li>
+            })}</ul>
+        </When>
     );
 }
 
