@@ -1,7 +1,7 @@
 
 import { When } from 'react-if'
 import Image from 'react-bootstrap/Image';
-import '../styles.css'
+
 
 const API_KEY= import.meta.env.VITE_API_KEY;
 
