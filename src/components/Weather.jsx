@@ -1,17 +1,27 @@
-import React from 'react';
-import {When} from 'react-if'
+/* eslint-disable react/prop-types */
+import { When } from 'react-if'
 
-
-function Weather(props){
+function WeatherDay({ day }) {
     return (
-        <When condition={props.forecast}>
-            <ul>{props.forecast.map((day, inx)=>{
-                return <li key={inx}>
-                    <p>date: {day.date}</p>
-                    <p>description: {day.description}</p>
-                </li>
-            })}</ul>
-        </When>
+        <li>
+            <p>Date: {day.date}</p>
+            <p>Description: {day.description}</p>
+        </li>
+    );
+}
+
+
+function Weather(props) {
+    return (
+        <div className='weather-container'>
+            <When condition={props.forecast}>
+                <ul>
+                    {props.forecast.map((day, index) => (
+                        <WeatherDay key={index} day={day} />
+                    ))}
+                </ul>
+            </When>
+        </div>
     );
 }
 

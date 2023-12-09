@@ -7,6 +7,7 @@ header {
   font-size: 36px;
   padding: 20px;
   color: white;
+  
 }
 
 footer {
@@ -29,6 +30,16 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-Form {
-  align-items: center;
+.form-container label {
+  display: inline;
+  font-size: 25px;
+  padding: 10px;
+  justify-content: center;
+}
+.form-container input {
+  height: 30px;
+  font-size: 25px;
+}
+.form-container button{
+  height: 20px;
 }

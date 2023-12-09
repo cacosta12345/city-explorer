@@ -28,12 +28,12 @@ LocationIQ API
 
 
 
-Name of feature: CityForm component, Map component, locationIQ API
+Name of feature: yelp api, modularize
 
-Estimate of time needed to complete: 3 hours
+Estimate of time needed to complete: 5 hours
 
-Start time: 2:00 pm
+Start time: 3:00 pm
 
-Finish time: 6:00 pm
+Finish time:
 
-Actual time needed to complete: 4+ hours
+Actual time needed to complete: 
